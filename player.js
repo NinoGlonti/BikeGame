@@ -1,7 +1,7 @@
 class Player {
     constructor() {
-        this.x = 50;
-        this.gravity = 0.15;
+        this.x = 80;
+        this.gravity = 0.2;
         this.jumpCount = 0;
         this.velocity = 0; 
     }
@@ -11,22 +11,22 @@ class Player {
     setup() {
         this.y = height - 80;
         this.originalY = this.y;
-        this.width = this.imag.width;
-        this.height = this.imag.height;
+        this.width = this.imag.width / 4.5;
+        this.height = this.imag.height / 4.5;
     }
-
+ 
 
     draw() {
         this.velocity += this.gravity;
         
         this.y += this.velocity;
-
         if (this.y > this.originalY) {
             this.y = this.originalY;
             this.jumpCount = 0;
         }
-        image(this.imag, this.x, this.y, 60, 60)
-        image(this.imag, this.x, this.y, 60, 60)
+        image(this.imag, this.x, this.y, this.width, this.height)
+        //image(this.imag, this.x, this.y, 70, 60)
+    
 
     }
     jump() {

@@ -4,3 +4,8 @@ html, body {
     /* remove the extra whites around */
     margin: 0;
   }
+
+  h1 {
+    text-align: center;
+    color: #B5E5CC;
+  }

@@ -29,3 +29,9 @@ function keyPressed() {
     game.player.jump();
   }
 }
+
+function addScore() {
+  if(!isCollision){
+
+  }
+}

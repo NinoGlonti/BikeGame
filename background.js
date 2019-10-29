@@ -18,6 +18,7 @@ class Background {
     this.bgCloud3 = loadImage ("img/cloud5.png")
     this.bgCloud4 = loadImage("img/cloud5.png")
     //city
+    this.bgCity = loadImage("img/fancy_city.png ")
    }
 
 
@@ -46,10 +47,6 @@ class Background {
     image(this.bgCloud2, this.xCloud2 + width, 10, 120,90);
     image(this.bgCloud3, this.xCloud3 + width, 40, 120,90);
     image(this.bgCloud4, this.xCloud4 + width, 60, 120,90);
-
-    //display city
-    
-   
     if(this.xCloud1 <= -width){
         this.xCloud1 = 0;
 
@@ -66,23 +63,25 @@ class Background {
         this.xCloud4 = 0;
 
     }
+
+    //display city
+    image(this.bgCity, this.xCity,0,width,height-50)
+    //this.bgCity.resize(0,1000)
+     
+    if(this.bgCity <= -width) {
+        this.bgCity = 0;
+    }
+   
+    
     stroke("black")
     line(0, height-20, width, height-20)
+
+  
+    
  }
 
 }
-  
-   /*
-   
-   image(this.bgCloud1, this.xCloud1, 0, 0); // width comes from p5
-   image(this.bgCloud1, this.xCloud1, 50, 50);
-   
 
-   if(this.xCloud1 <= -width){
-       this.xCloud1 = 0;
-   }
-
-}*/
 
 
 
