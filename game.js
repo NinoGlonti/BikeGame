@@ -3,8 +3,7 @@ class Game {
         this.background = new Background();
         this.player = new Player();
         this.obstacles = [];
-        this.drops = []
-        this.rain = new Rain();
+        this.rain = new Rain()
     }
 
     preload() {
@@ -14,6 +13,11 @@ class Game {
 
     setup() {
         this.player.setup();
+        this.rain.setup();
+    }
+
+    resize(){
+        this.rain.resize()
     }
 
     draw() {
@@ -25,10 +29,16 @@ class Game {
             this.obstacles.push(new Obstacle());
         }
 
-
-        if (frameCount > 300 && frameCount % 10 === 0) {
-            this.drops.push(new Rain());
+        if (millis() % 10000 > 5000) {
+            this.rain.start()
+        } else{
+            this.rain.stop()
         }
+
+
+        //if (frameCount > 300 && frameCount % 10 === 0) {
+        //    this.drops.push(new Rain());
+        //}
 
 
         this.obstacles.forEach(
@@ -49,7 +59,7 @@ class Game {
         );
 
 
-        this.drops.forEach(
+       /* this.drops.forEach(
             (drop, index) => {
                 //drop.preload()
                 drop.draw();
@@ -60,7 +70,7 @@ class Game {
                 }
 
             }
-        );
+        );*/
 
     }
 
