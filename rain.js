@@ -63,14 +63,3 @@ class Rain {
         })
     }
 }
-
-
-/*        for (let i = 0; i < 10000; i += 5) {
-                    let newNumber = Number(`2.0${i}`)
-                    let newNumber1 = Number(`${i}`)
-
-                    line(this.x1+ i, this.y1, this.x2 - i, height / newNumber)
-                }
-        */
-//line(20, height / 2.5, 20, height / 2.45)
-// x1, y1, x2, h2

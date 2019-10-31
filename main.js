@@ -12,7 +12,6 @@ function setup() {
   newColor = color(random(0), random(255), random(75));
   amt = 0;
   mode = 0; //game has not started
-  console.log('set to 0')
   background(startColor);
   game.setup()
 
@@ -34,7 +33,6 @@ function windowResized() {
 function draw() {
   clear();
   if (mode == 0) {
-    console.log('mode 0')
     background("#C1FFC1");
 
     image(bike, windowWidth / 2.5, windowHeight / 5.2, 60, 60)
@@ -54,7 +52,6 @@ function draw() {
 
 
   if (mode == 1) {
-    console.log("mode 1 in draw function ")
 
     game.draw()
   }
@@ -70,7 +67,7 @@ function draw() {
 
 function keyPressed() {
   if (keyCode === 13) {
-console.log("switch to mode 1");
+    console.log("switch to mode 1");
     mode = 1;
 
 
@@ -82,16 +79,10 @@ console.log("switch to mode 1");
   }
 
   if (mode == 3 && keyCode === 32) {
-    console.log("switch to mode 0");
     mode = 0;
-  game.draw()
+    loop()
   }
 
 
 }
 
-function addScore() {
-  if (!isCollision) {
-
-  }
-}

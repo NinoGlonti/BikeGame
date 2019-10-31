@@ -1,6 +1,6 @@
 class Player {
     constructor() {
-        this.x = 80;
+        this.x = 280;
         this.gravity = 0.2;
         this.jumpCount = 0;
         this.velocity = 0; 

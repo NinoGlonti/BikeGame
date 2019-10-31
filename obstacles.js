@@ -19,13 +19,8 @@ class Obstacle {
 
 
     draw() {
-
-
         image(this.obsImg, this.x, this.y, this.width, this.height);
         this.x -= 2
-        //rect(this.x, this.y, this.width, this.height);
-
-
-    }
+ }
 
 }

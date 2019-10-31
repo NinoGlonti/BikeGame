@@ -1,9 +1,8 @@
+//let bgWindowWidth = 1500;
+
 class Background {
     constructor() {
-        this.xCloud1 = 0;
-        this.xCloud2 = 10;
-        this.xCloud3 = 10;
-        this.xCloud4 = 20;
+
         //CITY
         this.xCity = 0;
 
@@ -17,14 +16,20 @@ class Background {
         this.bgCloud2 = loadImage("img/cloud5.png")
         this.bgCloud3 = loadImage("img/cloud5.png")
         this.bgCloud4 = loadImage("img/cloud5.png")
+
+
         //city
         this.bgCity = loadImage("img/fancy_city.png ")
     }
 
-
+    setup() {
+        this.xCloud1 = windowWidth
+        this.xCloud2 = windowWidth
+        this.xCloud3 = windowWidth
+        this.xCloud4 = windowWidth
+    }
 
     draw() {
-
         background(lerpColor(startColor, newColor, amt));
         amt += 0.001;
         if (amt >= 1) {
@@ -34,45 +39,52 @@ class Background {
         }
 
 
-        
+
 
         //DISPLAY cloud IMAGES
-        this.xCloud1 -= 1;
-        this.xCloud2 -= 1.5;
-        this.xCloud3 -= 0.5;
-        this.xCloud4 -= 2.5;
+        this.xCloud1 -= 4;
+        this.xCloud2 -= 4.5;
+        this.xCloud3 -= 3.5;
+        this.xCloud4 -= 5.5;
 
 
-        image(this.bgCloud1, this.xCloud1 + width, 10, 120, 90);
-        
-        image(this.bgCloud2, this.xCloud2 + width, 10, 120, 90);
-        
-        image(this.bgCloud3, this.xCloud3 + width, 40, 120, 90);
+        image(this.bgCloud1, this.xCloud1, 10, 120, 90);
 
-        image(this.bgCloud4, this.xCloud4 + width, 60, 120, 90);
-        if (this.xCloud1 <= -width) {
-            this.xCloud1 = 0;
+        image(this.bgCloud2, this.xCloud2, 10, 120, 90);
 
-        }
-        if (this.xCloud2 <= -width) {
-            this.xCloud2 = 0;
+        image(this.bgCloud3, this.xCloud3, 40, 120, 90);
+
+        image(this.bgCloud4, this.xCloud4, 60, 120, 90);
+
+
+        if (this.xCloud1 <= -120) {
+            this.xCloud1 = windowWidth;
 
         }
-        if (this.xCloud3 <= -width) {
-            this.xCloud3 = 0;
+        if (this.xCloud2 <= -120) {
+            this.xCloud2 = windowWidth;
 
         }
-        if (this.xCloud4 <= -width) {
-            this.xCloud4 = 0;
+        if (this.xCloud3 <= -120) {
+            this.xCloud3 = windowWidth;
 
         }
+        if (this.xCloud4 <= -120) {
+            this.xCloud4 = windowWidth;
+
+        }
+
+
 
         //display city
-        image(this.bgCity, this.xCity, 0, width, height - 50)
+        this.xCity -= 2.5;
+
+        image(this.bgCity, this.xCity, 0, windowWidth, windowHeight - 50)
+        image(this.bgCity, this.xCity + windowWidth, 0, windowWidth, windowHeight - 50);
         //this.bgCity.resize(0,1000)
 
-        if (this.bgCity <= -width) {
-            this.bgCity = 0;
+        if (this.xCity <= -width) {
+            this.xCity = 0;
         }
 
 
