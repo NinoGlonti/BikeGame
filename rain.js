@@ -1,5 +1,7 @@
 function createGrid(count, width, height) {
 
+
+
     let drops = []
 
     for (let i = 0; i < count; i++) {
@@ -7,7 +9,7 @@ function createGrid(count, width, height) {
             let drop = {
                 x: (i + random(-0.5, 0.5)) * width / count,
                 y: (j + random(-0.5, 0.5)) * height / count,
-                size: noise(i, j) * 10,
+                size: noise(i, j) * 15,
                 speed: random(150,250), // 150 + random() * 100 
                 duration: random(1000,3000)
             }
@@ -25,6 +27,11 @@ class Rain {
         this.raining = false
     }
 
+    preload()
+    {
+        
+    }
+
     setup() {
         this.resize()
     }
@@ -37,6 +44,8 @@ class Rain {
 
     start() {
         this.raining =true;
+        
+        
     }
 
     stop() {
@@ -54,12 +63,14 @@ class Rain {
             let y = drop.y + elapsed/1000 * drop.speed - drop.duration/2 / 1000 * drop.speed
             let opacity;
             if (elapsed < drop.duration/2) 
-              {opacity = map(elapsed, 0, drop.duration/2, 0, 255)} 
+              {opacity = map(elapsed, 0, drop.duration/2, 0, 255)
+            } 
             else 
               {opacity = map(elapsed, drop.duration/2, drop.duration, 255, 0)}
             
-            stroke(0, opacity)
+            stroke(82,138,204, opacity)
             line(x, y, x - drop.size, y + drop.size)
         })
     }
+
 }

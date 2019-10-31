@@ -12,14 +12,14 @@ class Background {
 
     preload() {
         //clouds
-        this.bgCloud1 = loadImage("img/cloud5.png")
-        this.bgCloud2 = loadImage("img/cloud5.png")
-        this.bgCloud3 = loadImage("img/cloud5.png")
-        this.bgCloud4 = loadImage("img/cloud5.png")
+        this.bgCloud1 = loadImage("img/whitecloud5.png")
+        this.bgCloud2 = loadImage("img/whitecloud5.png")
+        this.bgCloud3 = loadImage("img/whitecloud5.png")
+        this.bgCloud4 = loadImage("img/whitecloud5.png")
 
 
         //city
-        this.bgCity = loadImage("img/fancy_city.png ")
+        this.bgCity = loadImage("img/lasttryyyCityFe.png")
     }
 
     setup() {
@@ -42,34 +42,34 @@ class Background {
 
 
         //DISPLAY cloud IMAGES
-        this.xCloud1 -= 4;
-        this.xCloud2 -= 4.5;
-        this.xCloud3 -= 3.5;
-        this.xCloud4 -= 5.5;
+        this.xCloud1 -= 5;
+        this.xCloud2 -= 4;
+        this.xCloud3 -= 3;
+        this.xCloud4 -= 4.3;
 
 
-        image(this.bgCloud1, this.xCloud1, 10, 120, 90);
+        image(this.bgCloud1, this.xCloud1, 10, 140, 100);
 
-        image(this.bgCloud2, this.xCloud2, 10, 120, 90);
+        image(this.bgCloud2, this.xCloud2, 10, 140, 100);
 
-        image(this.bgCloud3, this.xCloud3, 40, 120, 90);
+        image(this.bgCloud3, this.xCloud3, 40, 140, 100);
 
-        image(this.bgCloud4, this.xCloud4, 60, 120, 90);
+        image(this.bgCloud4, this.xCloud4, 60, 140, 100);
 
 
-        if (this.xCloud1 <= -120) {
+        if (this.xCloud1 <= -140) {
             this.xCloud1 = windowWidth;
 
         }
-        if (this.xCloud2 <= -120) {
+        if (this.xCloud2 <= -140) {
             this.xCloud2 = windowWidth;
 
         }
-        if (this.xCloud3 <= -120) {
+        if (this.xCloud3 <= -140) {
             this.xCloud3 = windowWidth;
 
         }
-        if (this.xCloud4 <= -120) {
+        if (this.xCloud4 <= -140) {
             this.xCloud4 = windowWidth;
 
         }
@@ -79,8 +79,8 @@ class Background {
         //display city
         this.xCity -= 2.5;
 
-        image(this.bgCity, this.xCity, 0, windowWidth, windowHeight - 50)
-        image(this.bgCity, this.xCity + windowWidth, 0, windowWidth, windowHeight - 50);
+        image(this.bgCity, this.xCity, 0, windowWidth, windowHeight)
+        image(this.bgCity, this.xCity + windowWidth, 0, windowWidth, windowHeight);
         //this.bgCity.resize(0,1000)
 
         if (this.xCity <= -width) {
@@ -89,7 +89,7 @@ class Background {
 
 
         stroke("black")
-        line(0, height - 20, width, height - 20)
+        line(0, height - 5, width, height - 5)
 
 
 

@@ -1,18 +1,19 @@
 class Player {
     constructor() {
         this.x = 280;
-        this.gravity = 0.2;
+        this.gravity = 0.25;
         this.jumpCount = 0;
         this.velocity = 0; 
     }
     preload() {
-        this.imag = loadImage("img/bikk.png")
+        this.imag = loadImage("img/bikk_white.png")
     }
     setup() {
-        this.y = height - 80;
+        this.y = height-90
+        ;
         this.originalY = this.y;
-        this.width = this.imag.width / 4.5;
-        this.height = this.imag.height / 4.5;
+        this.width = this.imag.width / 3.2;
+        this.height = this.imag.height / 3.2;
     }
  
 
@@ -25,7 +26,6 @@ class Player {
             this.jumpCount = 0;
         }
         image(this.imag, this.x, this.y, this.width, this.height)
-        //image(this.imag, this.x, this.y, 70, 60)
     
 
     }

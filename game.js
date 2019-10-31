@@ -6,6 +6,9 @@ class Game {
         this.rain = new Rain()
         this.nextObstacle = 140;
         this.score = 0;
+        
+        //this.regnen;
+
     }
 
     preload() {
@@ -17,6 +20,9 @@ class Game {
         this.player.setup();
         this.rain.setup();
         this.background.setup();
+
+
+
     }
 
     resize() {
@@ -24,6 +30,8 @@ class Game {
     }
 
     draw() {
+
+
         this.background.draw();
         this.player.draw();
         this.rain.draw()
@@ -35,18 +43,26 @@ class Game {
 
 
 
+
+
         if (millis() % 10000 > 5000) {
             this.rain.start()
+            //regnen = true
+
         } else {
             this.rain.stop()
+            //regnen = false
+
         }
+
+
 
 
         this.obstacles.forEach(
             (obstacle, index) => {
                 obstacle.preload()
                 obstacle.draw();
-                
+
 
 
                 if (obstacle.x + obstacle.width < this.player.x - 20) {
@@ -54,17 +70,18 @@ class Game {
                     this.obstacles.splice(index, 1);
                     this.score++
                     fill("black")
-                    
+
 
 
                 }
                 text(`Score: ${this.score}`, 10, 30)
 
-               if (this.isCollision(obstacle, this.player)) {
-                   mode = 3;
+                if (this.isCollision(obstacle, this.player)) {
+                    
+                    mode = 3;
                     this.obstacles = []
                     this.score = 0;
-                  noLoop();
+                    noLoop();
                 }
             }
         );
@@ -79,7 +96,3 @@ class Game {
         )
     }
 }
-
-
-
-
