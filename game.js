@@ -4,6 +4,7 @@ class Game {
         this.player = new Player();
         this.obstacles = [];
         this.rain = new Rain()
+        this.nextObstacle = 140;
     }
 
     preload() {
@@ -16,7 +17,7 @@ class Game {
         this.rain.setup();
     }
 
-    resize(){
+    resize() {
         this.rain.resize()
     }
 
@@ -25,13 +26,16 @@ class Game {
         this.player.draw();
         this.rain.draw()
 
-        if (frameCount > 240 && frameCount % 120 === 0) {
+        if (frameCount > this.nextObstacle) {
+            this.nextObstacle = this.nextObstacle + random(100, 200)
             this.obstacles.push(new Obstacle());
         }
 
+
+
         if (millis() % 10000 > 5000) {
             this.rain.start()
-        } else{
+        } else {
             this.rain.stop()
         }
 
@@ -52,25 +56,27 @@ class Game {
                 }
 
                 if (this.isCollision(obstacle, this.player)) {
-                    console.log("nooo");
-                    //   noLoop();
+                    console.log(" mode 3");
+                    mode = 3;
+                    this.obstacles = []
+                    noLoop();
                 }
             }
         );
 
 
-       /* this.drops.forEach(
-            (drop, index) => {
-                //drop.preload()
-                drop.draw();
-                if (drop.y > window.HEIGHT) {
+        /* this.drops.forEach(
+             (drop, index) => {
+                 //drop.preload()
+                 drop.draw();
+                 if (drop.y > window.HEIGHT) {
 
-                    this.drops.splice(index, 1);
+                     this.drops.splice(index, 1);
 
-                }
+                 }
 
-            }
-        );*/
+             }
+         );*/
 
     }
 
