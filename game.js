@@ -6,8 +6,8 @@ class Game {
         this.rain = new Rain()
         this.nextObstacle = 140;
         this.score = 0;
-        
-       
+
+
 
     }
 
@@ -49,7 +49,7 @@ class Game {
             this.rain.start()
         } else {
             this.rain.stop()
-       }
+        }
 
 
 
@@ -71,11 +71,11 @@ class Game {
 
                 }
 
-                //textSize(22)
-                //text(`Score: ${this.score}`, 10, 30)
+                textSize(22)
+                text(`Score: ${this.score}`, 10, 30)
 
                 if (this.isCollision(obstacle, this.player)) {
-                    
+
                     mode = 3;
                     this.obstacles = []
                     this.score = 0;
