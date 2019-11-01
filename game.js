@@ -7,7 +7,7 @@ class Game {
         this.nextObstacle = 140;
         this.score = 0;
         
-        //this.regnen;
+       
 
     }
 
@@ -31,7 +31,7 @@ class Game {
 
     draw() {
 
-
+        console.log(this.score);
         this.background.draw();
         this.player.draw();
         this.rain.draw()
@@ -70,8 +70,9 @@ class Game {
 
 
                 }
-                textSize(22)
-                text(`Score: ${this.score}`, 10, 30)
+
+                //textSize(22)
+                //text(`Score: ${this.score}`, 10, 30)
 
                 if (this.isCollision(obstacle, this.player)) {
                     

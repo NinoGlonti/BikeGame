@@ -9,6 +9,10 @@ function preload() {
   rainsound = loadSound("sound/sfx_rain_low.mp3")
   jumpsound = loadSound("sound/sfx_biker_jump.mp3")
   collisionsound = loadSound("sound/sfx_collision.mp3")
+
+  text1 = loadImage("img/startscreen_text_biker_01.png")
+  text2 = loadImage("img/endscreen_text.png")
+
 }
 
 function setup() {
@@ -25,7 +29,7 @@ function setup() {
 
 
   //START SCREEN
-  text = loadImage("img/startscreen_text_biker_01.png")
+
   music.loop()
 
 }
@@ -44,7 +48,7 @@ function draw() {
   if (mode == 0) {
     createCanvas(windowWidth, windowHeight);
     background("#518561");
-    image(text, windowWidth / 3.5, windowHeight / 7, 800, 800)
+    image(text1, windowWidth / 3.5, windowHeight / 7, 800, 800)
   }
 
 
@@ -56,16 +60,16 @@ function draw() {
   }
 
   if (mode == 3) {
-    push()
-    fill('white')
-    textSize(60)
-    text("Game Over", windowWidth / 2.2, windowHeight / 2.5)
-    text("Press [SPACE] to play again", windowWidth / 1.8, windowHeight / 3)
-    pop()
 
+
+    
+    background("#518561");
+    image(text2, windowWidth / 3.5, windowHeight / 7, 800, 800)
+    //collisionsound.play()
 
   }
 }
+
 
 
 //START,JUMP,PLAYAGAIN
@@ -81,7 +85,7 @@ function keyPressed() {
   }
 
   if (mode == 3 && keyCode === 32) {
-    mode = 0;
+    mode = 1;
     loop()
   }
 
