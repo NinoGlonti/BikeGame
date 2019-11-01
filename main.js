@@ -5,7 +5,7 @@ var mode;
 
 function preload() {
   game.preload();
-  music = loadSound("sound/mus_low_quality.mp3")
+  music = loadSound("sound/sfx_mus_all.mp3")
   rainsound = loadSound("sound/sfx_rain_low.mp3")
   jumpsound = loadSound("sound/sfx_biker_jump.mp3")
   collisionsound = loadSound("sound/sfx_collision.mp3")
@@ -16,16 +16,11 @@ function setup() {
   startColor = color(0, 255, 95);
   newColor = color(random(0), random(255), random(75));
   amt = 0;
-
-
-  mode = 0; //GAME HAS NOT STARTED
+  mode = 0; //game has not started
   background(startColor);
   game.setup()
   textSize(20);
-
-
-  //START SCREEN
-  text = loadImage("img/startscreen_text_biker_01.png")
+  bike = loadImage("img/bikk.png")
   music.loop()
 
 }
@@ -43,11 +38,27 @@ function draw() {
   clear();
   if (mode == 0) {
     createCanvas(windowWidth, windowHeight);
-    background("#518561");
-    image(text, windowWidth / 3.5, windowHeight / 7, 800, 800)
+  //startColor = color(0, 255, 95);
+  //newColor = color(random(0), random(255), random(75));
+  //amt = 0;
+  background("#518561");
+   // background("#C1FFC1");
+
+    //image(bike, windowWidth / 2.5, windowHeight / 5.2, 60, 60)
+    //fill('rgba(0,255,0, 0.25)')
+
+    //rect(windowWidth / 3.2, windowHeight / 3.5, 500, 350, 20)
+    fill('black')
+    text("Hello World!", windowWidth / 2.2, windowHeight / 2.5)
+    textStyle(ITALIC);
+    text("Jump over the trash bag to clean your town", windowWidth / 2.8, windowHeight / 2)
+
+    fill("black")
+    text("Press Enter to start", windowWidth / 2.3, windowHeight / 1.5);
+    textStyle('italic 2em "Open Sans", sans-serif')
+
   }
-
-
+  
 
 
   if (mode == 1) {
@@ -56,23 +67,18 @@ function draw() {
   }
 
   if (mode == 3) {
-    push()
-    fill('white')
-    textSize(60)
+    fill('black')
     text("Game Over", windowWidth / 2.2, windowHeight / 2.5)
-    text("Press [SPACE] to play again", windowWidth / 1.8, windowHeight / 3)
-    pop()
-
+    //collisionsound.play()
 
   }
 }
 
 
-//START,JUMP,PLAYAGAIN
-
 function keyPressed() {
   if (keyCode === 13) {
-    mode = 1;
+    console.log("switch to mode 1");
+    mode = 1;  
   }
 
   if (mode == 1 && keyCode === 32) {
@@ -85,7 +91,15 @@ function keyPressed() {
     loop()
   }
 
-  if (Rain) {
+  if(Rain)
+  {
     rainsound.play()
   }
+
+
+
+
+
 }
+
+
