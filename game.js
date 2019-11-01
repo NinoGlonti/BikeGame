@@ -47,13 +47,9 @@ class Game {
 
         if (millis() % 10000 > 5000) {
             this.rain.start()
-            //regnen = true
-
         } else {
             this.rain.stop()
-            //regnen = false
-
-        }
+       }
 
 
 
@@ -69,11 +65,12 @@ class Game {
 
                     this.obstacles.splice(index, 1);
                     this.score++
-                    fill("black")
+                    fill("white")
 
 
 
                 }
+                textSize(22)
                 text(`Score: ${this.score}`, 10, 30)
 
                 if (this.isCollision(obstacle, this.player)) {
